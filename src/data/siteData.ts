@@ -63,49 +63,52 @@ export interface FormState {
   message: string;
 }
 
+const image = (filename: string) =>
+  `${import.meta.env.BASE_URL}image/${filename}`;
+
 export const PHOTOS = {
   // Портреты Полины
-  heroRedBelt: "/public/image/polina.jpg",
-  portraitWhiteClose: "/public/image/portraitWhiteClose.jpg",
-  portraitShowroomBW: "/public/image/pol-grey.jpg",
-  portraitWhiteSuit: "/public/image/portraitWhiteSuit.jpg",
-  portraitDarkCoat: "/public/image/portraitDarkCoat.jpg",
-  portraitTopDown: "/public/image/portraitTopDown.jpg",
+  heroRedBelt: image("polina.jpg"),
+  portraitWhiteClose: image("portraitWhiteClose.jpg"),
+  portraitShowroomBW: image("pol-grey.jpg"),
+  portraitWhiteSuit: image("portraitWhiteSuit.jpg"),
+  portraitDarkCoat: image("portraitDarkCoat.jpg"),
+  portraitTopDown: image("portraitTopDown.jpg"),
 
   // Женские образы
-  lookCoatRedBag: "/public/image/lookCoatRedBag.jpg",
-  lookBlueShirtRedBag: "/public/image/lookBlueShirtRedBag.jpg",
-  lookYellowKnitGloves: "/public/image/lookYellowKnitGloves.jpg",
-  lookTweedJacketSkirt: "/public/image/lookTweedJacketSkirt.jpg",
-  lookCheckBlazerCulottes: "/public/image/lookCheckBlazerCulottes.jpg",
-  lookSuedeCoatMannequin: "/public/image/lookSuedeCoatMannequin.jpg",
-  lookBlueTurtleneckSkirt: "/public/image/lookBlueTurtleneckSkirt.jpg",
-  lookWinterPufferPink: "/public/image/lookWinterPufferPink.jpg",
+  lookCoatRedBag: image("lookCoatRedBag.jpg"),
+  lookBlueShirtRedBag: image("lookBlueShirtRedBag.jpg"),
+  lookYellowKnitGloves: image("lookYellowKnitGloves.jpg"),
+  lookTweedJacketSkirt: image("lookTweedJacketSkirt.jpg"),
+  lookCheckBlazerCulottes: image("lookCheckBlazerCulottes.jpg"),
+  lookSuedeCoatMannequin: image("lookSuedeCoatMannequin.jpg"),
+  lookBlueTurtleneckSkirt: image("lookBlueTurtleneckSkirt.jpg"),
+  lookWinterPufferPink: image("lookWinterPufferPink.jpg"),
 
   // Мужские капсулы
-  mensLookCasual: "/public/image/mensLookCasual.jpg",
-  mensLookClassic: "/public/image/mensLookClassic.jpg",
+  mensLookCasual: image("mensLookCasual.jpg"),
+  mensLookClassic: image("mensLookClassic.jpg"),
 
-  // Детали, фактуры и эстетика (Moodboard)
-  detailHandBagJjoir: "/public/image/detailHandBagJjoir.jpg",
-  detailKnitStack: "/public/image/detailKnitStack.jpg",
-  detailKinfolkBook: "/public/image/detailKinfolkBook.jpg",
-  detailBurgundyBagBook: "/public/image/detailBurgundyBagBook.jpg",
-  detailBoucleChairBag: "/public/image/detailBoucleChairBag.jpg",
-  detailRackShirts: "/public/image/detailRackShirts.jpg",
-  detailBlueHeelsConcrete: "/public/image/detailBlueHeelsConcrete.jpg",
-  detailBlueBootsCream: "/public/image/detailBlueBootsCream.jpg",
-  detailBurgundyMules: "/public/image/detailBurgundyMules.jpg",
-  detailGreyCardiganBrooch: "/public/image/detailGreyCardiganBrooch.jpg",
-  detailLatrikaBags: "/public/image/detailLatrikaBags.jpg",
+  // Детали, фактуры и эстетика
+  detailHandBagJjoir: image("detailHandBagJjoir.jpg"),
+  detailKnitStack: image("detailKnitStack.jpg"),
+  detailKinfolkBook: image("detailKinfolkBook.jpg"),
+  detailBurgundyBagBook: image("detailBurgundyBagBook.jpg"),
+  detailBoucleChairBag: image("detailBoucleChairBag.jpg"),
+  detailRackShirts: image("detailRackShirts.jpg"),
+  detailBlueHeelsConcrete: image("detailBlueHeelsConcrete.jpg"),
+  detailBlueBootsCream: image("detailBlueBootsCream.jpg"),
+  detailBurgundyMules: image("detailBurgundyMules.jpg"),
+  detailGreyCardiganBrooch: image("detailGreyCardiganBrooch.jpg"),
+  detailLatrikaBags: image("detailLatrikaBags.jpg"),
 
-  // Оригиналы отзывов и образов клиенток
-  reviewStoryYellowTrench: "/public/image/clientYellowTrench.jpg",
-  reviewStoryBeigeSuit: "/public/image/reviewStoryBeigeSuit.jpg",
-  reviewStoryStreetFriend: "/public/image/reviewStoryStreetFriend.jpg",
-  reviewStoryMensStyle: "/public/image/reviewStoryMensStyle.jpg",
-  reviewStoryGoldenDress: "/public/image/reviewStoryGoldenDress.jpg",
-  reviewStoryWardrobe4h: "/public/image/reviewStoryWardrobe4h.jpg",
+  // Истории клиентов
+  reviewStoryYellowTrench: image("clientYellowTrench.jpg"),
+  reviewStoryBeigeSuit: image("reviewStoryBeigeSuit.jpg"),
+  reviewStoryStreetFriend: image("reviewStoryStreetFriend.jpg"),
+  reviewStoryMensStyle: image("reviewStoryMensStyle.jpg"),
+  reviewStoryGoldenDress: image("reviewStoryGoldenDress.jpg"),
+  reviewStoryWardrobe4h: image("reviewStoryWardrobe4h.jpg"),
 };
 
 export const MOOD_STRIP_DATA: MoodItem[] = [
