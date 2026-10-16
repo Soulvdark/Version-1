@@ -1,0 +1,110 @@
+import React, { useState } from "react";
+
+interface HeaderProps {
+  isColorAwakened: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({ isColorAwakened }) => {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-neutral-300/90 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#top" className="flex flex-col shrink-0">
+          <span className="font-serif text-base sm:text-xl tracking-[0.14em] uppercase text-neutral-900">
+            Polina Shurupova
+          </span>
+          <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-500 -mt-0.5">
+            Stylist &amp; Costume Historian
+          </span>
+        </a>
+
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] font-mono uppercase tracking-[0.16em]">
+          <a href="#about" className="hover:text-neutral-500 transition-colors">
+            01 / О себе
+          </a>
+          <a
+            href="#works"
+            className="hover:text-neutral-500 transition-colors flex items-center gap-2"
+          >
+            <span>02 / Лукбук работ</span>
+            <span
+              className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                isColorAwakened ? "bg-red-700 scale-125" : "bg-neutral-400"
+              }`}
+            />
+          </a>
+          <a
+            href="#services"
+            className="hover:text-neutral-500 transition-colors"
+          >
+            03 / Услуги и прайс
+          </a>
+          <a
+            href="#reviews"
+            className="hover:text-neutral-500 transition-colors"
+          >
+            04 / Истории клиентов
+          </a>
+        </nav>
+
+        <div className="hidden sm:flex items-center gap-3">
+          <a
+            href="#contact"
+            className="px-4 py-2 text-[10px] xl:text-[11px] font-mono uppercase tracking-[0.18em] border border-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors"
+          >
+            [ Обсудить гардероб ]
+          </a>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setMobileNavOpen((v) => !v)}
+          className="lg:hidden px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest border border-neutral-400 bg-white"
+        >
+          {mobileNavOpen ? "Закрыть ×" : "Меню ≡"}
+        </button>
+      </div>
+
+      {mobileNavOpen && (
+        <nav className="lg:hidden border-b border-neutral-300 bg-[#F3F2EE] px-5 py-6 flex flex-col gap-4 text-xs font-mono uppercase tracking-[0.18em] shadow-lg">
+          <a
+            href="#about"
+            onClick={() => setMobileNavOpen(false)}
+            className="py-1 border-b border-neutral-200"
+          >
+            01 / О себе и метод
+          </a>
+          <a
+            href="#works"
+            onClick={() => setMobileNavOpen(false)}
+            className="py-1 border-b border-neutral-200"
+          >
+            02 / Лукбук работ (Женские и мужские)
+          </a>
+          <a
+            href="#services"
+            onClick={() => setMobileNavOpen(false)}
+            className="py-1 border-b border-neutral-200"
+          >
+            03 / Услуги и прайс
+          </a>
+          <a
+            href="#reviews"
+            onClick={() => setMobileNavOpen(false)}
+            className="py-1 border-b border-neutral-200"
+          >
+            04 / Отзывы клиентов
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setMobileNavOpen(false)}
+            className="mt-2 py-3.5 bg-neutral-900 text-white text-center text-[11px]"
+          >
+            Записаться на консультацию
+          </a>
+        </nav>
+      )}
+    </header>
+  );
+};
