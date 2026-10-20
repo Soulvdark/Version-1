@@ -67,43 +67,63 @@ export interface FormState {
   message: string;
 }
 
+// Стандартная переменная Vite: сама подставляет '/' локально или '/Version-1/' на GitHub Pages
+const BASE = import.meta.env.BASE_URL;
+
 export const PHOTOS = {
   // Портреты Полины
-  heroRedBelt: "/public/image/polina.jpg",
-  portraitWhiteClose: "/public/image/portraitWhiteClose.jpg",
-  portraitShowroomBW: "/public/image/pol-grey.jpg",
-  portraitTopDown: "/public/image/portraitTopDown.jpg",
+  heroRedBelt: `${BASE}image/polina.jpg`,
+  portraitWhiteClose: `${BASE}image/portraitWhiteClose.jpg`,
+  portraitShowroomBW: `${BASE}image/pol-grey.jpg`,
+  portraitWhiteSuit: `${BASE}image/portraitWhiteSuit.jpg`,
+  portraitDarkCoat: `${BASE}image/portraitDarkCoat.jpg`,
+  portraitTopDown: `${BASE}image/portraitTopDown.jpg`,
 
-  // Женские и мужские образы (с учетом 4 новых кадров IMG_0430, IMG_0438, IMG_0435, IMG_0428)
-  lookCoatRedBag: "/public/image/lookCoatRedBag.jpg",
-  lookBlueShirtRedBag: "/public/image/lookBlueShirtRedBag.jpg",
-  lookYellowKnitGloves: "/public/image/lookYellowKnitGloves.jpg",
-  lookPlaidCoatRedShoes: "/public/image/IMG_0430.PNG", // Замена LOOK 04
-  mensStreetCoatBag: "/public/image/IMG_0438.PNG", // Замена LOOK 05 (живое фото)
-  mensFittingPuffer: "/public/image/IMG_0435.PNG", // Замена LOOK 06 (живое фото)
-  lookCheckBlazerCulottes: "/public/image/lookCheckBlazerCulottes.jpg",
-  lookBrownBlazerWhiteDress: "/public/image/IMG_0428.PNG", // Замена LOOK 08 (вместо манекена)
-  lookBlueTurtleneckSkirt: "/public/image/lookBlueTurtleneckSkirt.jpg",
+  // Женские образы (включая новые фото IMG_0430 и IMG_0428)
+  lookCoatRedBag: `${BASE}image/lookCoatRedBag.jpg`,
+  lookBlueShirtRedBag: `${BASE}image/lookBlueShirtRedBag.jpg`,
+  lookYellowKnitGloves: `${BASE}image/lookYellowKnitGloves.jpg`,
+  lookTweedJacketSkirt: `${BASE}image/lookTweedJacketSkirt.jpg`,
+  lookPlaidCoatRedShoes: `${BASE}image/IMG_0430.PNG`,
+  lookCheckBlazerCulottes: `${BASE}image/lookCheckBlazerCulottes.jpg`,
+  lookSuedeCoatMannequin: `${BASE}image/lookSuedeCoatMannequin.jpg`,
+  lookBrownBlazerWhiteDress: `${BASE}image/IMG_0428.PNG`,
+  lookBlueTurtleneckSkirt: `${BASE}image/lookBlueTurtleneckSkirt.jpg`,
+  lookWinterPufferPink: `${BASE}image/lookWinterPufferPink.jpg`,
+
+  // Мужские капсулы (включая новые живые фото IMG_0438 и IMG_0435)
+  mensLookCasual: `${BASE}image/mensLookCasual.jpg`,
+  mensLookClassic: `${BASE}image/mensLookClassic.jpg`,
+  mensStreetCoatBag: `${BASE}image/IMG_0438.PNG`,
+  mensFittingPuffer: `${BASE}image/IMG_0435.PNG`,
 
   // Детали, фактуры и эстетика (Moodboard)
-  detailHandBagJjoir: "/public/image/detailHandBagJjoir.jpg",
-  detailKnitStack: "/public/image/detailKnitStack.jpg",
-  detailKinfolkBook: "/public/image/detailKinfolkBook.jpg",
-  detailBurgundyBagBook: "/public/image/detailBurgundyBagBook.jpg",
-  detailBoucleChairBag: "/public/image/detailBoucleChairBag.jpg",
-  detailRackShirts: "/public/image/detailRackShirts.jpg",
-  detailBlueHeelsConcrete: "/public/image/detailBlueHeelsConcrete.jpg",
-  detailBurgundyMules: "/public/image/detailBurgundyMules.jpg",
-  detailGreyCardiganBrooch: "/public/image/detailGreyCardiganBrooch.jpg",
-  detailLatrikaBags: "/public/image/detailLatrikaBags.jpg",
+  detailHandBagJjoir: `${BASE}image/detailHandBagJjoir.jpg`,
+  detailKnitStack: `${BASE}image/detailKnitStack.jpg`,
+  detailKinfolkBook: `${BASE}image/detailKinfolkBook.jpg`,
+  detailBurgundyBagBook: `${BASE}image/detailBurgundyBagBook.jpg`,
+  detailBoucleChairBag: `${BASE}image/detailBoucleChairBag.jpg`,
+  detailRackShirts: `${BASE}image/detailRackShirts.jpg`,
+  detailBlueHeelsConcrete: `${BASE}image/detailBlueHeelsConcrete.jpg`,
+  detailBlueBootsCream: `${BASE}image/detailBlueBootsCream.jpg`,
+  detailBurgundyMules: `${BASE}image/detailBurgundyMules.jpg`,
+  detailGreyCardiganBrooch: `${BASE}image/detailGreyCardiganBrooch.jpg`,
+  detailLatrikaBags: `${BASE}image/detailLatrikaBags.jpg`,
 
   // Скриншоты отзывов
-  reviewStoryYellowTrench: "/public/image/clientYellowTrench.jpg",
-  reviewStoryBeigeSuit: "/public/image/reviewStoryBeigeSuit.jpg",
-  reviewStoryStreetFriend: "/public/image/reviewStoryStreetFriend.jpg",
-  reviewStoryMensStyle: "/public/image/reviewStoryMensStyle.jpg",
-  reviewStoryGoldenDress: "/public/image/reviewStoryGoldenDress.jpg",
-  reviewStoryWardrobe4h: "/public/image/reviewStoryWardrobe4h.jpg",
+  reviewStoryYellowTrench: `${BASE}image/clientYellowTrench.jpg`,
+  reviewStoryBeigeSuit: `${BASE}image/reviewStoryBeigeSuit.jpg`,
+  reviewStoryStreetFriend: `${BASE}image/reviewStoryStreetFriend.jpg`,
+  reviewStoryMensStyle: `${BASE}image/reviewStoryMensStyle.jpg`,
+  reviewStoryGoldenDress: `${BASE}image/reviewStoryGoldenDress.jpg`,
+  reviewStoryWardrobe4h: `${BASE}image/reviewStoryWardrobe4h.jpg`,
+  reviewInterviewCapsuleSlides: `${BASE}image/reviewInterviewCapsuleSlides.jpg`,
+  reviewWardrobeAuditShoppingExcitement: `${BASE}image/reviewWardrobeAuditShoppingExcitement.jpg`,
+  reviewDeepDiagnosticPersonalGrowth: `${BASE}image/reviewDeepDiagnosticPersonalGrowth.jpg`,
+  reviewLongTermGentleTransformation: `${BASE}image/reviewLongTermGentleTransformation.jpg`,
+  reviewBloggerSelfExpressionAnalysis: `${BASE}image/reviewBloggerSelfExpressionAnalysis.jpg`,
+  reviewSignatureRedCroppedJacket: `${BASE}image/reviewSignatureRedCroppedJacket.jpg`,
+  reviewPsychologistExpressConsultation: `${BASE}image/reviewPsychologistExpressConsultation.jpg`,
 };
 
 export const MOOD_STRIP_DATA: MoodItem[] = [
@@ -407,7 +427,6 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
 ];
 
-// Полное собрание всех 13 отзывов, присланных Полиной
 export const REVIEWS_DATA: ReviewItem[] = [
   {
     id: "r-1",
@@ -504,7 +523,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Благодаря тебе я по-другому стала смотреть на свой гардероб! Очень понравилось, как ты отвечаешь на вопросы: например, про жакеты или брюки (для меня это было очень важно). Очень понравилось, как ты объясняешь цвета и как можно с их помощью влиять на впечатление о себе. Теперь буду знать, как дооформить рабочий гардероб».",
     dateNote: "Консультация по стилю",
-    proofImage: PHOTOS.detailRackShirts,
+    proofImage: PHOTOS.reviewInterviewCapsuleSlides,
     proofCaption: "Разбор рабочей капсулы и палитры",
   },
   {
@@ -518,7 +537,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Для меня это не рутина, это что-то классное и вдохновляющее! Разбор гардероба меня прямо окрылил, и я уже представляю, как выхожу в субботу с крутыми покупками и ношу их потом с восторгом и благодарностью. Теперь тот факт, что у меня много одежды, не пугает, а радует и вызывает предвкушение от возможных комбинаций!»",
     dateNote: "Разбор гардероба + Шопинг",
-    proofImage: PHOTOS.detailBurgundyMules,
+    proofImage: PHOTOS.reviewWardrobeAuditShoppingExcitement,
     proofCaption: "Эмоции после ревизии гардероба",
   },
   {
@@ -532,7 +551,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Время с тобой пролетело мгновенно, я получила ответы на все свои вопросы. Как ты всё преподносишь — с уверенностью, спокойствием, любовью и заботой! Разбор был настолько глубоким, что коснулся личностного роста — ты зришь в корень и задаёшь направление для правильного движения».",
     dateNote: "Онлайн-диагностика гардероба",
-    proofImage: PHOTOS.detailBoucleChairBag,
+    proofImage: PHOTOS.reviewDeepDiagnosticPersonalGrowth,
     proofCaption: "Онлайн-консультация по стилю",
   },
   {
@@ -546,7 +565,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Наши первые поиски были сосредоточены на образе для мероприятия, второй раз я решилась на более обширный шопинг для повседневной жизни. У Полины интересный и смелый взгляд — она слышит тебя, учитывает твои слабые моментики и старается подчеркнуть сильные, максимально плавно адаптируя к новым элементам в одежде».",
     dateNote: "Многолетнее сотрудничество",
-    proofImage: PHOTOS.detailLatrikaBags,
+    proofImage: PHOTOS.reviewLongTermGentleTransformation,
     proofCaption: "Шопинг-сопровождение",
   },
   {
@@ -560,7 +579,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Интересный разбор, очень вовремя! Например, яркая фактурная рубашка выбрана не случайно — это будет именно такая яркая точка. После разбора поняла, как доносить свою мысль через образ без строгости и упрёков. Искренне, от души благодарю за эту возможность и своевременность!»",
     dateNote: "Разбор образа и позиционирования",
-    proofImage: PHOTOS.detailKnitStack,
+    proofImage: PHOTOS.reviewBloggerSelfExpressionAnalysis,
     proofCaption: "Работа с фактурами и акцентами",
   },
   {
@@ -574,7 +593,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«С тобой очень спокойно, всё так размеренно и понятно. Хочу поделиться своим образом — мне очень нравится, как я выгляжу! Снова тебя благодарю за вдохновение, поддержку и за то, что открыла мне когда-то меня!»",
     dateNote: "Стилизация и развитие вкуса",
-    proofImage: PHOTOS.lookCoatRedBag,
+    proofImage: PHOTOS.reviewSignatureRedCroppedJacket,
     proofCaption: "Работа с красными акцентами",
   },
   {
@@ -587,7 +606,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     quote:
       "«Полина, благодарю вас за консультацию! Приятно общаться с человеком, знающим своё дело и разбирающимся в профессии. Услышала для себя важные моменты, на которые стоит обратить внимание. Помимо оплаты вы преследуете гораздо более глубокую миссию — оставаться верной себе!»",
     dateNote: "Консультация и стайлинг мероприятий",
-    proofImage: PHOTOS.detailKinfolkBook,
+    proofImage: PHOTOS.reviewPsychologistExpressConsultation,
     proofCaption: "Индивидуальный подход и эстетика",
   },
 ];

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PHOTOS, SERVICES_DATA, FormState } from "../data/siteData";
-import { SmartImage, BinderClip } from "./UiElements";
+import { SERVICES_DATA, FormState } from "../data/siteData";
+import { BinderClip } from "./UiElements";
 
 interface ContactAndFooterProps {
   contactRef: React.RefObject<HTMLElement | null>;
@@ -46,7 +46,7 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
               </p>
 
               {/* Теперь эти 2 фото имеют четкий функционал — интерактивные карточки перехода в Telegram и Instagram */}
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              {/* <div className="grid grid-cols-2 gap-3 pt-1">
                 <a
                   href="https://t.me/couture_polina"
                   target="_blank"
@@ -90,7 +90,7 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
                     </span>
                   </div>
                 </a>
-              </div>
+              </div> */}
 
               <div className="pt-4 space-y-3 border-t border-neutral-200">
                 <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400">
