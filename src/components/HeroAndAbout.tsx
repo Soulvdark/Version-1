@@ -18,7 +18,7 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
 
   return (
     <>
-      {/* БЛОК 1. ПЕРВЫЙ ЭКРАН (HERO) */}
+      {/* БЛОК 1. ПЕРВЫЙ ЭКРАН (HERO) — С НОВЫМИ ТЕКСТАМИ ИЗ САЙТ.PDF */}
       <section
         id="top"
         className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16 lg:py-16 overflow-hidden"
@@ -29,34 +29,44 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          <div className="lg:col-span-6 space-y-6 sm:space-y-8 order-2 lg:order-1">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-7 order-2 lg:order-1">
             <div className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-white border border-neutral-300 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-700">
               <span className="w-1.5 h-1.5 rounded-full bg-red-700 shrink-0" />
               <span>Стилист и историк моды • 7 лет в профессии</span>
             </div>
 
+            {/* Имя и фамилия теперь единым прямым шрифтом, как просила Полина */}
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl leading-[1.04] tracking-tight text-neutral-900 font-normal">
               Полина <br />
-              <span className="italic font-light">Шурупова</span>
+              Шурупова
             </h1>
 
-            <p className="text-base sm:text-lg xl:text-xl text-neutral-800 leading-relaxed max-w-xl font-light">
-              Помогаю разобраться в своём стиле, собрать гардероб под свою жизнь
-              и понять, как одежда меняет впечатление о нас.
-            </p>
-
-            <div className="relative bg-white/90 border border-neutral-300 p-4 sm:p-5 max-w-lg">
-              <PaperClip className="absolute -top-3.5 right-5" />
-              <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-1">
-                МЕТОД ИСТОРИКА КОСТЮМА:
-              </div>
-              <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed">
-                Изучаю историю костюма и объясняю, как через цвет, форму и
-                детали можно рассказать о себе без слов — в женском и мужском
-                гардеробе.
+            <div className="space-y-3 max-w-xl">
+              <p className="text-base sm:text-lg xl:text-xl text-neutral-800 leading-relaxed font-light">
+                Помогаю найти свой стиль, собрать гардероб для реальной жизни и
+                понять, почему одни вещи становятся любимыми, а другие так и
+                остаются в шкафу.
+              </p>
+              <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
+                Мне важно не просто, чтобы одежда вам шла. А чтобы в ней вы
+                чувствовали себя собой.
               </p>
             </div>
 
+            {/* Поле со скрепкой: «Как я работаю» */}
+            <div className="relative bg-white/90 border border-neutral-300 p-4 sm:p-5 max-w-lg">
+              <PaperClip className="absolute -top-3.5 right-5" />
+              <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-500 mb-1.5">
+                КАК Я РАБОТАЮ:
+              </div>
+              <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                Я соединяю практику стилиста с историей костюма и вниманием к
+                личности. Помогаю увидеть, как цвет, форма, фактура и детали
+                отражают характер, образ жизни и внутренние перемены.
+              </p>
+            </div>
+
+            {/* Обновленные кнопки */}
             <div className="pt-1 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="#contact"
@@ -65,10 +75,10 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
                 Обсудить гардероб
               </a>
               <a
-                href="#works"
-                className="px-7 py-4 bg-white border border-neutral-900 text-neutral-900 text-xs font-mono uppercase tracking-[0.2em] text-center hover:bg-neutral-100 transition-colors"
+                href="#reviews"
+                className="px-6 py-4 bg-white border border-neutral-900 text-neutral-900 text-xs font-mono uppercase tracking-[0.16em] text-center hover:bg-neutral-100 transition-colors"
               >
-                Смотреть лукбук ↓
+                Смотреть отзывы (они больше говорят обо мне) ↓
               </a>
             </div>
           </div>
@@ -135,7 +145,7 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
 
       <ArchiveRingsDivider />
 
-      {/* БЛОК 2. О СЕБЕ И ЭКСПЕРТНОСТЬ */}
+      {/* БЛОК 2. О СЕБЕ И ЭКСПЕРТНОСТЬ (Убраны 2 нижних фото, обновлены все тексты и карточка «Женские и мужские») */}
       <section
         id="about"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20"
@@ -156,8 +166,9 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-[#FAF9F6] p-3 border border-neutral-200">
+            {/* Оставлено только одно главное фото FIG. 01 на диване в шоуруме */}
+            <div className="lg:col-span-5">
+              <div className="bg-[#FAF9F6] p-3.5 border border-neutral-200">
                 <div className="aspect-[4/5] overflow-hidden bg-neutral-100">
                   <SmartImage
                     src={PHOTOS.portraitShowroomBW}
@@ -166,47 +177,9 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
                     className="w-full h-full object-cover grayscale contrast-115"
                   />
                 </div>
-                <div className="mt-2 flex justify-between text-[9px] font-mono uppercase tracking-[0.18em] text-neutral-500">
+                <div className="mt-2.5 flex justify-between text-[9px] font-mono uppercase tracking-[0.18em] text-neutral-500">
                   <span>FIG. 01 — SHOWROOM PRACTICE</span>
                   <span>ARCHIVE BW</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="bg-[#FAF9F6] p-2 border border-neutral-200">
-                  <div className="aspect-[3/4] overflow-hidden bg-neutral-100">
-                    <SmartImage
-                      src={PHOTOS.portraitWhiteSuit}
-                      alt="Полина в белом костюме"
-                      loading="lazy"
-                      className={`w-full h-full object-cover transition-all duration-700 ${
-                        isColorAwakened
-                          ? "grayscale-0"
-                          : "grayscale hover:grayscale-0"
-                      }`}
-                    />
-                  </div>
-                  <span className="block mt-1.5 text-[8px] font-mono uppercase tracking-widest text-neutral-400">
-                    FIG. 02 — WHITE SUIT
-                  </span>
-                </div>
-
-                <div className="bg-[#FAF9F6] p-2 border border-neutral-200">
-                  <div className="aspect-[3/4] overflow-hidden bg-neutral-100">
-                    <SmartImage
-                      src={PHOTOS.portraitDarkCoat}
-                      alt="Полина в студии"
-                      loading="lazy"
-                      className={`w-full h-full object-cover transition-all duration-700 ${
-                        isColorAwakened
-                          ? "grayscale-0"
-                          : "grayscale hover:grayscale-0"
-                      }`}
-                    />
-                  </div>
-                  <span className="block mt-1.5 text-[8px] font-mono uppercase tracking-widest text-neutral-400">
-                    FIG. 03 — ATELIER MOOD
-                  </span>
                 </div>
               </div>
             </div>
@@ -225,15 +198,16 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
                   </div>
                 </div>
 
+                {/* Написано целиком: «Женские и мужские» */}
                 <div className="p-4 sm:p-5 bg-[#FAF9F6] border border-neutral-200">
                   <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
                     ГАРДЕРОБЫ
                   </span>
-                  <div className="font-serif text-2xl xl:text-3xl text-neutral-900 mt-1.5">
-                    Жен. &amp; Муж.
+                  <div className="font-serif text-xl xl:text-2xl text-neutral-900 mt-1.5 leading-tight">
+                    Женские и мужские
                   </div>
                   <div className="mt-1 text-xs text-neutral-600 leading-snug">
-                    персональный стайлинг и деловые капсулы
+                    персональный стайлинг и капсулы для жизни
                   </div>
                 </div>
 
@@ -241,61 +215,66 @@ export const HeroAndAbout: React.FC<HeroAndAboutProps> = ({
                   <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
                     ФУНДАМЕНТ
                   </span>
-                  <div className="font-serif text-2xl xl:text-3xl text-neutral-900 mt-1.5">
+                  <div className="font-serif text-xl xl:text-2xl text-neutral-900 mt-1.5 leading-tight">
                     История моды
                   </div>
                   <div className="mt-1 text-xs text-neutral-600 leading-snug">
-                    работа с силуэтом, цветом и контекстом костюма
+                    работа с силуэтом, цветом и личностью
                   </div>
                 </div>
               </div>
 
+              {/* Новые 3 абзаца текста из Сайт.pdf */}
               <div className="space-y-4 text-neutral-700 leading-relaxed text-sm sm:text-base">
                 <p className="font-serif text-xl sm:text-2xl text-neutral-900 italic leading-snug">
-                  «Когда вы понимаете логику кроя, цвета и своих пропорций,
-                  утренний выбор одежды занимает меньше минуты и приносит
-                  удовольствие».
+                  «Стиль начинается не с правил. Он начинается с понимания себя
+                  и того, как вы хотите чувствовать себя в своей одежде».
                 </p>
                 <p>
-                  В основе моей работы лежит соединение двух дисциплин:{" "}
-                  <strong>практического стайлинга</strong> и{" "}
-                  <strong>истории костюма</strong>. Любая деталь — ширина
-                  лацкана, плотность шерсти, оттенок бордового или форма мыса
-                  обуви — считывается окружающими быстрее слов.
+                  Я соединяю практику стилиста и историка моды с психологией. Мы
+                  разбираемся, что вам действительно близко, как вы живёте и что
+                  хотите выражать через одежду. Цвет, форма, фактура и детали
+                  становятся инструментами, а не набором правил.
                 </p>
                 <p>
-                  Мы не гонимся за однодневными трендами и не ломаем вашу
-                  индивидуальность. Вместо этого мы создаём структурированную
-                  систему вещей (с готовым электронным лукбуком-шпаргалкой),
-                  которая отражает ваш масштаб, характер и образ жизни.
+                  Моя задача — не переделать вас и не собрать гардероб ради
+                  красивой картинки. Мы ищем сочетания, которые подходят вашей
+                  реальной жизни, и учимся по-новому смотреть на уже имеющиеся
+                  вещи. В результате становится проще выбирать одежду и собирать
+                  образы самостоятельно.
                 </p>
               </div>
 
+              {/* Обновленные 4 пункта «Что меняется после совместной работы» */}
               <div className="bg-[#FAF9F6] border border-neutral-200 p-5 sm:p-6 space-y-3">
                 <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500">
                   ЧТО МЕНЯЕТСЯ ПОСЛЕ СОВМЕСТНОЙ РАБОТЫ:
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-neutral-800">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm text-neutral-800">
                   <li className="flex items-start gap-2">
                     <span className="font-mono text-neutral-400">01/</span>
-                    <span>Уходит страх перед магазинами и лишними тратами</span>
+                    <span>
+                      Вы лучше понимаете, какие вещи вам действительно подходят.
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-mono text-neutral-400">02/</span>
                     <span>
-                      Вещи из текущего гардероба складываются в новые луки
+                      Из одежды в вашем гардеробе складываются новые сочетания
+                      (собранные мной в удобный лукбук).
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-mono text-neutral-400">03/</span>
                     <span>
-                      Появляется наглядный лукбук в телефоне на каждый день
+                      Меньше случайных покупок и вещей, которые висят без дела.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="font-mono text-neutral-400">04/</span>
                     <span>
-                      Точное знание своих цветов, фасонов и сильных сторон
+                      Вы собираете образы под свою жизнь, а не под чужие
+                      правила.
                     </span>
                   </li>
                 </ul>

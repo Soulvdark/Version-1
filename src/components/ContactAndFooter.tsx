@@ -45,28 +45,56 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
                 напишите мне напрямую или оставьте заявку в анкете.
               </p>
 
+              {/* Теперь эти 2 фото имеют четкий функционал — интерактивные карточки перехода в Telegram и Instagram */}
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="aspect-[4/3] border border-neutral-200 overflow-hidden bg-neutral-100">
+                <a
+                  href="https://t.me/couture_polina"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative aspect-[4/3] border border-neutral-300 overflow-hidden bg-neutral-100 block"
+                >
                   <SmartImage
                     src={PHOTOS.detailHandBagJjoir}
-                    alt="Деталь образа"
+                    alt="Написать в Telegram"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
-                <div className="aspect-[4/3] border border-neutral-200 overflow-hidden bg-neutral-100">
+                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition-colors flex flex-col justify-end p-3">
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-white/80">
+                      Личный чат
+                    </span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-white underline">
+                      Telegram ↗
+                    </span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://instagram.com/coutur.ye"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative aspect-[4/3] border border-neutral-300 overflow-hidden bg-neutral-100 block"
+                >
                   <SmartImage
                     src={PHOTOS.detailBurgundyMules}
-                    alt="Обувь и стиль"
+                    alt="Блог в Instagram"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
+                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/50 transition-colors flex flex-col justify-end p-3">
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-white/80">
+                      Обзоры и стиль
+                    </span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-white underline">
+                      Instagram ↗
+                    </span>
+                  </div>
+                </a>
               </div>
 
               <div className="pt-4 space-y-3 border-t border-neutral-200">
                 <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400">
-                  Личные каналы связи Полины:
+                  Прямые контакты Полины:
                 </div>
                 <div className="flex flex-col gap-3">
                   <a
@@ -94,7 +122,7 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
             <div className="lg:col-span-7 bg-[#FAF8F5] border border-neutral-300 p-5 sm:p-10">
               <div className="flex justify-between items-center border-b border-neutral-300 pb-4 mb-6 sm:mb-8 text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500">
                 <span>CLIENT APPLICATION BRIEF</span>
-                <span>WOMEN &amp; MEN</span>
+                <span>ЖЕНСКИЕ И МУЖСКИЕ ГАРДЕРОБЫ</span>
               </div>
 
               {formSubmitted ? (
@@ -200,7 +228,7 @@ export const ContactAndFooter: React.FC<ContactAndFooterProps> = ({
                     <textarea
                       id="f-msg"
                       rows={3}
-                      placeholder="Например: разобрать текущий гардероб, собрать деловую капсулу, подготовиться к съёмке или мероприятию..."
+                      placeholder="Например: разобрать текущий гардероб, провести стилизацию имеющихся вещей или подобрать новую капсулу..."
                       value={formState.message}
                       onChange={(e) =>
                         setFormState({ ...formState, message: e.target.value })

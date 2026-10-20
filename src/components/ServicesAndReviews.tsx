@@ -1,5 +1,10 @@
 import React, { useState, useMemo } from "react";
-import { SERVICES_DATA, ReviewCategory, ReviewItem } from "../data/siteData";
+import {
+  SERVICES_DATA,
+  REVIEWS_DATA,
+  ReviewCategory,
+  ReviewItem,
+} from "../data/siteData";
 import { SmartImage } from "./UiElements";
 
 interface ServicesAndReviewsProps {
@@ -29,20 +34,20 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
 
   return (
     <>
-      {/* БЛОК 4. УСЛУГИ И ПРАЙС */}
+      {/* БЛОК 4. УСЛУГИ И ПРАЙС — ПОЛНЫЕ ТЕКСТЫ ПО ДОКУМЕНТУ ПОЛИНЫ */}
       <section
         id="services"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24"
       >
         <div className="border-t border-b border-neutral-300 py-3.5 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.22em] text-neutral-500">
           <span>SECTION 03 // SERVICE GUIDE &amp; INVESTMENT</span>
-          <span>ОНЛАЙН ПО ВСЕМУ МИРУ / ОФЛАЙН</span>
+          <span>ФОРМАТ: ОНЛАЙН / ОФЛАЙН</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-8">
             <h2 className="font-serif text-3xl sm:text-5xl tracking-tight font-normal mb-8 sm:mb-10">
-              Форматы работы и прайс
+              Услуги и формат работы
             </h2>
 
             <div className="divide-y divide-neutral-300 border-t border-b border-neutral-300 bg-white">
@@ -52,7 +57,7 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                   <div
                     key={service.id}
                     onMouseEnter={() => setHoveredServiceId(service.id)}
-                    className={`p-5 sm:p-8 transition-colors duration-300 ${
+                    className={`p-5 sm:p-9 transition-colors duration-300 ${
                       isActive ? "bg-[#FAF8F4]" : "bg-white"
                     }`}
                   >
@@ -70,28 +75,53 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                       </div>
                     </div>
 
-                    <div className="mb-3">
+                    <div className="mb-4">
                       <span className="inline-block text-[10px] font-mono uppercase tracking-[0.16em] px-2.5 py-0.5 border border-neutral-300 bg-white text-neutral-600">
                         Формат: {service.format}
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-3">
-                      {service.description}
+                    {/* Вводный вопрос / лид-абзац */}
+                    <p className="font-serif italic text-base sm:text-lg text-neutral-900 leading-snug mb-3">
+                      {service.leadQuestion}
                     </p>
-                    <p className="text-xs text-neutral-500 border-l-2 border-neutral-400 pl-3 mb-5">
-                      <strong className="font-mono uppercase text-[10px] text-neutral-700 block mb-0.5">
-                        Результат для вас:
+
+                    {/* Основное описание процесса */}
+                    <div className="space-y-2.5 text-xs sm:text-sm text-neutral-700 leading-relaxed mb-5">
+                      {service.paragraphs.map((p, idx) => (
+                        <p key={idx}>{p}</p>
+                      ))}
+                    </div>
+
+                    {/* Список «Что вы получите» */}
+                    <div className="bg-white/90 border border-neutral-200 p-4 sm:p-5 mb-5">
+                      <strong className="font-mono uppercase text-[10px] tracking-[0.16em] text-neutral-800 block mb-2.5">
+                        {service.benefitsTitle}
                       </strong>
-                      {service.result}
-                    </p>
+                      <ul className="space-y-2 text-xs sm:text-sm text-neutral-700">
+                        {service.benefitsList.map((benefit, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2.5">
+                            <span className="font-mono text-neutral-400 shrink-0">
+                              —
+                            </span>
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {service.closingNote && (
+                      <p className="text-xs sm:text-sm text-neutral-600 italic mb-5 border-l-2 border-neutral-400 pl-3">
+                        {service.closingNote}
+                      </p>
+                    )}
 
                     <button
                       type="button"
                       onClick={() => onBookService(service.title)}
-                      className="w-full sm:w-auto px-5 py-3 border border-neutral-900 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.18em] hover:bg-neutral-900 hover:text-white transition-colors cursor-pointer text-center"
+                      className="w-full sm:w-auto px-6 py-3.5 bg-neutral-900 text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.18em] hover:bg-neutral-800 transition-colors cursor-pointer text-center"
                     >
-                      [ Выбрать «{service.title}» ]
+                      [ {service.ctaText} ]
                     </button>
                   </div>
                 );
@@ -116,14 +146,15 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                 {activeServicePreview.title}
               </div>
               <div className="mt-1 text-xs font-mono uppercase tracking-wider text-neutral-500">
-                {activeServicePreview.price} • {activeServicePreview.format}
+                {activeServicePreview.price} • Формат:{" "}
+                {activeServicePreview.format}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* БЛОК 5. ОТЗЫВЫ И ИСТОРИИ КЛИЕНТОВ */}
+      {/* БЛОК 5. ПОЛНЫЙ АРХИВ ВСЕХ 13 ОТЗЫВОВ КЛИЕНТОВ */}
       <section
         id="reviews"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24"
@@ -134,18 +165,18 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
               SECTION 04 // CLIENT STORIES &amp; ARCHIVE NOTES
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl tracking-tight font-normal">
-              Истории, образы и оригиналы отзывов
+              Отзывы и истории клиентов
             </h2>
           </div>
 
           <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
             {(
               [
-                { id: "all", label: "Все истории (6)" },
+                { id: "all", label: `Все отзывы (${REVIEWS_DATA.length})` },
                 { id: "shopping", label: "Шопинг" },
                 { id: "wardrobe", label: "Разбор и лукбук" },
+                { id: "consultation", label: "Консультации и капсулы" },
                 { id: "mens", label: "Мужской стиль" },
-                { id: "coaching", label: "Фэшн-терапия" },
               ] as { id: ReviewCategory; label: string }[]
             ).map((tab) => (
               <button
@@ -178,7 +209,7 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                 </div>
 
                 <div className="relative mb-5 bg-[#F4F1EA] border border-neutral-200 p-2 overflow-hidden">
-                  <div className="relative h-60 w-full overflow-hidden bg-neutral-900/5 flex items-center justify-center">
+                  <div className="relative h-56 w-full overflow-hidden bg-neutral-900/5 flex items-center justify-center">
                     <SmartImage
                       src={review.proofImage}
                       alt={review.proofCaption}
@@ -187,14 +218,14 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors flex items-end justify-end p-2.5">
                       <span className="bg-white/95 text-neutral-900 px-3 py-1.5 text-[9px] font-mono uppercase tracking-[0.16em] shadow-sm">
-                        [ Открыть скриншот ↗ ]
+                        [ Читать целиком ↗ ]
                       </span>
                     </div>
                   </div>
                   <div className="mt-2 flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-neutral-500">
                     <span className="truncate">{review.proofCaption}</span>
                     <span className="text-neutral-900 shrink-0 ml-2 underline">
-                      Увеличить
+                      Открыть
                     </span>
                   </div>
                 </div>
@@ -220,7 +251,7 @@ export const ServicesAndReviews: React.FC<ServicesAndReviewsProps> = ({
                   </div>
                 </div>
                 <span className="px-2.5 py-1 border border-neutral-300 group-hover:border-neutral-900 text-[9px] font-mono uppercase tracking-widest shrink-0">
-                  Оригинал →
+                  Подробнее →
                 </span>
               </div>
             </article>
