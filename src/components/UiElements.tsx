@@ -4,13 +4,15 @@ import { PHOTOS } from "../data/siteData";
 export const SmartImage: React.FC<
   React.ImgHTMLAttributes<HTMLImageElement>
 > = ({ src, alt, ...props }) => {
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.currentTarget;
-    if (target.src.includes("/public/")) {
-      target.src = target.src.replace("/public/", "/");
-    }
-  };
-  return <img src={src} alt={alt || ""} onError={handleError} {...props} />;
+  // Автоматически очищаем пути от '/public/' и ведущих слэшей,
+  // чтобы на GitHub Pages путь всегда вел внутрь репозитория /Version-1/
+  const resolvedSrc = React.useMemo(() => {
+    if (!src) return "";
+    const cleanPath = src.replace(/^\/?public\//, "").replace(/^\//, "");
+    return `./${cleanPath}`;
+  }, [src]);
+
+  return <img src={resolvedSrc} alt={alt || ""} {...props} />;
 };
 
 export const BinderClip: React.FC<{ className?: string }> = ({
